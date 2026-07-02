@@ -14,6 +14,15 @@
 // TODO: Implement this function
 function gcd(a: number, b: number): number {
   // Your code here
+
+  while (b !== 0) {
+    const temp = b;
+    b = a % b;
+    a = temp;
+  }
+
+  return a;
+
   throw new Error("Not implemented");
 }
 

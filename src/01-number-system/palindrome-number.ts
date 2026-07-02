@@ -14,10 +14,27 @@
 function isPalindrome(n: number): boolean {
   // Your code here
 
+  // const result = n.toString();
+  // const reversed = result.split('').reverse().join('');
+  // return result === reversed;
+  // throw new Error("Not implemented"); 
   
+  //method 2 maths
 
+  let temp = n;
+  let reversed =0;
 
-  throw new Error("Not implemented");
+  while(temp>0){
+    let digit = temp % 10;
+    reversed = reversed * 10 + digit;
+    temp = Math.floor(temp / 10);
+  }
+  if (n === reversed) {
+    return true;
+  } else {
+    return false;
+  }
+
 }
 
 // ---------- TESTS ----------

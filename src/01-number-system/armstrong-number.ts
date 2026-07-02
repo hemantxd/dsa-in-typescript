@@ -15,7 +15,24 @@
 // TODO: Implement this function
 function isArmstrong(n: number): boolean {
   // Your code here
-  throw new Error("Not implemented");
+
+ let length = n.toString().length;
+  let num = n;
+  let sum = 0;
+  while(num > 0){
+    
+    let digit = num % 10;
+    sum += Math.pow(digit, length);
+    num = Math.floor(num / 10);
+    
+  }
+  if (sum === n) {
+      return true;
+    }
+  
+    return false;
+
+  //throw new Error("Not implemented");
 }
 
 // ---------- TESTS ----------
