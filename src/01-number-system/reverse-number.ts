@@ -3,28 +3,17 @@
  * ------------------------------------
  * Given an integer, reverse its digits.
  *
- * Example:
- *   Input:  1234
- *   Output: 4321
- *
- *   Input:  -123
- *   Output: -321
- *
- *   Input:  120
- *   Output: 21   (leading zeros are dropped)
+ * Examples:
+ *   reverseNumber(1234)  → 4321
+ *   reverseNumber(-123)  → -321
+ *   reverseNumber(120)   → 21
+ *   reverseNumber(0)     → 0
  */
 
+// TODO: Implement this function
 function reverseNumber(n: number): number {
-  let num = Math.abs(n);
-  let reversed = 0;
-
-  while (num > 0) {
-    const digit = num % 10;           // Get last digit
-    reversed = reversed * 10 + digit; // Append to reversed
-    num = Math.floor(num / 10);       // Remove last digit
-  }
-
-  return n < 0 ? -reversed : reversed;
+  // Your code here
+  throw new Error("Not implemented");
 }
 
 // ---------- TESTS ----------
@@ -39,11 +28,21 @@ function runTests() {
     { input: 1000, expected: 1 },
   ];
 
+  let passed = 0;
   for (const { input, expected } of tests) {
-    const result = reverseNumber(input);
-    const pass = result === expected;
-    console.log(`${pass ? "✅" : "❌"} reverseNumber(${input}) = ${result} ${pass ? "" : `(expected ${expected})`}`);
+    try {
+      const result = reverseNumber(input);
+      if (result === expected) {
+        console.log(`✅ reverseNumber(${input}) = ${result}`);
+        passed++;
+      } else {
+        console.log(`❌ reverseNumber(${input}) = ${result} (expected ${expected})`);
+      }
+    } catch (e: any) {
+      console.log(`❌ reverseNumber(${input}) threw: ${e.message}`);
+    }
   }
+  console.log(`\n${passed}/${tests.length} tests passed`);
 }
 
 runTests();
