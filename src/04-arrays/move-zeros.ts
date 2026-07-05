@@ -12,10 +12,16 @@
 
 // TODO: Implement this function
 function moveZeros(nums: number[]): number[] {
-  // Your code here
-  throw new Error("Not implemented");
-}
+    let j = 0;
 
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            j++;
+        }
+    }
+    return nums;
+}
 // ---------- TESTS ----------
 
 function runTests() {

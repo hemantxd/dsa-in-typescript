@@ -12,7 +12,22 @@
 // TODO: Implement this function
 function rotate(nums: number[], k: number): number[] {
   // Your code here
-  throw new Error("Not implemented");
+  const n = nums.length;
+  k = k % n; // Handle cases where k is greater than the length of the array
+
+  reverse(nums, 0, n - 1); // Reverse the entire array
+  reverse(nums, 0, k - 1); // Reverse the first k elements
+  reverse(nums, k, n - 1); // Reverse the remaining elements
+
+  return nums;
+}
+
+function reverse(nums: number[], start: number, end: number): void {
+  while (start < end) {
+    [nums[start], nums[end]] = [nums[end], nums[start]];
+    start++;
+    end--;
+  }
 }
 
 // ---------- TESTS ----------
