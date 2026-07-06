@@ -16,7 +16,18 @@
 // TODO: Implement this function
 function maxProfit(prices: number[]): number {
   // Your code here
-  throw new Error("Not implemented");
+  let ans = 0;
+  const n = prices.length;
+
+  for(let i=0, j=0; i < n; i++){
+    if(prices[i]< prices[j]){
+      j=i;
+
+    }else{
+      ans = Math.max(ans, prices[i] - prices[j]);
+    }
+  }
+  return ans;
 }
 
 // ---------- TESTS ----------

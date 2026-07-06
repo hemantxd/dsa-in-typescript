@@ -13,6 +13,23 @@
 // TODO: Implement this function
 function maxSubarray(nums: number[]): number {
   // Your code here
+
+  const n = nums.length;
+  let maxSum = nums[0];
+  let currentSum = 0;
+
+  for(const num of nums){
+    currentSum += num;
+    if(currentSum > maxSum){
+      maxSum = currentSum;
+    }
+    if(currentSum < 0){
+      currentSum = 0;
+    }
+  }
+
+  return maxSum;
+
   throw new Error("Not implemented");
 }
 
