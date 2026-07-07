@@ -17,7 +17,25 @@
 // TODO: Implement this function
 function maxArea(height: number[]): number {
   // Your code here
-  throw new Error("Not implemented");
+  let i = 0;
+  let j = height.length - 1;
+  let maxArea = 0;
+
+  while (i < j) {
+    const width = j - i;
+    const currentHeight = Math.min(height[i], height[j]);
+    const currentArea = width * currentHeight;
+    maxArea = Math.max(maxArea, currentArea);
+
+    if(height[i] < height[j]) {
+      i++;
+    } else {
+      j--;
+    }
+
+  }
+
+  return maxArea;
 }
 
 // ---------- TESTS ----------
