@@ -14,9 +14,51 @@
  */
 
 // TODO: Implement this function
+// function firstMissingPositive(nums: number[]): number {
+//   // Your code here
+
+//   const freq = new Map<number, number>();
+  
+//   for(const num of nums){
+//     if(num > 0){
+//       freq.set(num, (freq.get(num) || 0)+1);
+//     }
+//   }
+
+//   for(let i = 1; i <= nums.length; i++){
+//     if(!freq.has(i)){
+//       return i;
+//     }
+//   }
+
+//   return nums.length + 1;
+// }
+
+
 function firstMissingPositive(nums: number[]): number {
-  // Your code here
-  throw new Error("Not implemented");
+  const n = nums.length;
+
+  // Place each positive number x at index x - 1
+  for (let i = 0; i < n; i++) {
+    while(
+      nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] !== nums[i]
+    ) {
+      const correctIndex = nums[i] - 1;
+      [nums[i], nums[correctIndex]] = [nums[correctIndex], nums[i]];
+    }
+  }
+
+
+  // Find the first index where the number is incorrect
+  for (let i = 0; i < n; i++) {
+    if (nums[i] !== i + 1) {
+      return i + 1;
+    }
+  }
+
+
+  // If all positions are correct
+  return n + 1;
 }
 
 // ---------- TESTS ----------

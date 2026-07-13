@@ -14,3 +14,7 @@
 | 8 | Container with most water | Two-pointer optimization | Medium |
 | 9 | Product of array except self | Prefix/suffix products | Medium |
 | 10 | First missing positive | Cyclic sort / in-place marking | Hard |
+| 11 | Longest consecutive sequence | HashSet for O(n) lookup | Medium |
+| 12 | Rotate matrix by 90 degrees | Layer-by-layer swap / transpose | Medium |
+| 13 | Pascal's triangle | Dynamic pattern building | Easy |
+| 14 | 3 Sum | Two-pointer after sorting | Medium |
