@@ -13,8 +13,19 @@
 
 // TODO: Implement this function
 function rotateMatrix(matrix: number[][]): void {
-  // Your code here
-  throw new Error("Not implemented");
+  const n = matrix.length;
+
+  // Transpose
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+    }
+  }
+
+  // Reverse each row
+  for (let i = 0; i < n; i++) {
+    matrix[i].reverse();
+  }
 }
 
 // ---------- TESTS ----------
