@@ -22,6 +22,21 @@ function moveZeros(nums: number[]): number[] {
     }
     return nums;
 }
+function moveZeros2(nums: number[]): number[] {
+  let j=0;
+  let i=0;
+  while(j<nums.length){
+    if(nums[j]!==0){
+      [nums[i], nums[j]]=[nums[j], nums[i]];
+      i++;
+      j++;
+    }else{
+      j++;
+    }
+  }
+  return nums;
+}
+
 // ---------- TESTS ----------
 
 function runTests() {
