@@ -61,6 +61,10 @@ To run a specific file (e.g., `src/04-arrays/example.ts`), use:
 
 ```bash
 npx ts-node src/04-arrays/example.ts
+
+or
+
+npx ts-node src/04-arrays/example.ts
 ```
 
 Or temporarily update the `dev` script in `package.json`:

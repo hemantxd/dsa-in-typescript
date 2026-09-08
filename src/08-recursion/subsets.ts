@@ -31,6 +31,34 @@ function subsets(nums: number[]): number[][] {
   return result;
 }
 
+
+function subsets2(nums: number[]): number[][] {
+  const result: number[][] = [];
+  const n = nums.length;
+
+  function backtrack(i: number, array: number[]): void {
+    if(i >= n) {
+      console.log('Reached end of array, pushing', array);  
+      result.push([...array]);
+      return;
+    }
+    array.push(nums[i]);
+    console.log('Including', nums[i], '->', array);
+    backtrack(i + 1, array);
+    array.pop();
+    console.log('Excluding', nums[i], '->', array);
+    backtrack(i + 1, array);
+  }
+
+  backtrack(0, []);
+  return result;
+  
+  
+
+
+  } 
+
+
 // ---------- TESTS ----------
 
 function runTests() {

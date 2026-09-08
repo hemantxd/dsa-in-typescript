@@ -9,7 +9,12 @@
     "start": "node dist/playground/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["dsa", "typescript", "algorithms", "data-structures"],
+  "keywords": [
+    "dsa",
+    "typescript",
+    "algorithms",
+    "data-structures"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
