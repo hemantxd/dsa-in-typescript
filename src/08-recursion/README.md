@@ -14,6 +14,7 @@
 | 8 | Subsets / Power Set | Include/exclude backtracking | Medium |
 | 9 | Permutations | Backtracking with used[] tracking | Medium |
 | 10 | Generate Parentheses | Backtracking with constraints (open/close) | Medium |
+| 11 | Print All Subsequences with Sum K | Pick/not-pick backtracking with running sum | Medium |
 
 ## Key Concepts
 
