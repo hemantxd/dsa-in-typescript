@@ -15,6 +15,8 @@
 | 9 | Permutations | Backtracking with used[] tracking | Medium |
 | 10 | Generate Parentheses | Backtracking with constraints (open/close) | Medium |
 | 11 | Print All Subsequences with Sum K | Pick/not-pick backtracking with running sum | Medium |
+| 12 | Combination Sum (LC 39) | Backtracking with unlimited reuse of candidates | Medium |
+| 13 | Subset Sum I (power set walk-through included) | Pick/skip: track running sum instead of subset | Medium |
 
 ## Key Concepts
 
