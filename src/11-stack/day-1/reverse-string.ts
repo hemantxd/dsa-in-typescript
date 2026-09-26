@@ -25,20 +25,9 @@
  */
 
 export function reverseString(s: string): string {
-  // TODO: picks up the pen — push each char, then pop them into the result.
+  // TODO: push each char onto a stack, then pop them into the result.
 
-  let answer: string = "";
-  const stack: string[] = [];
-
-  for(let i=0; i < s.length; i++) {
-    stack.push(s[i]);
-  }
-
-  while(stack.length > 0) {
-    answer += stack.pop();
-  }
-
-  return answer;
+  const stack: string[] = []; s
 
 
   throw new Error("Not implemented yet — your turn! (See Hints above.)");
