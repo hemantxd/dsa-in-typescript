@@ -27,10 +27,18 @@
 export function reverseString(s: string): string {
   // TODO: push each char onto a stack, then pop them into the result.
 
-  const stack: string[] = []; s
+  // const stack: string[] = []; 
 
+  // for(let i = 0; i < s.length; i++) {
+  //   stack.push(s[i]);
+  // }
 
-  throw new Error("Not implemented yet — your turn! (See Hints above.)");
+  // let result = "";
+  // while (stack.length > 0) {
+  //   result += stack.pop();
+  // }
+
+  // return result;
 }
 
 // ---------- SELF-CHECK (no answers leaked — just pass/fail) ----------

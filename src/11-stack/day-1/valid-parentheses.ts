@@ -36,7 +36,35 @@
 
 export function isValid(s: string): boolean {
   // TODO: push openers; on a closer, pop and check the match.
-  throw new Error("Not implemented yet — your turn! (See Hints above.)");
+
+  const stack: string[] = [];
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+    if (char === '(' || char === '{' || char === '[') {
+      stack.push(char);
+    } else {
+      if (stack.length === 0) {
+        return false;
+      }
+
+      const lastOpener = stack.pop();
+      if(
+        (char === ')' && lastOpener !== '(') ||
+        (char === '}' && lastOpener !== '{') ||
+        (char === ']' && lastOpener !== '[')
+      ) {
+        return false;
+      }
+    }
+  }
+
+
+  if (stack.length > 0) {
+    return false;
+  }
+
+  return true;
 }
 
 // ---------- SELF-CHECK (no answers leaked — just pass/fail) ----------
