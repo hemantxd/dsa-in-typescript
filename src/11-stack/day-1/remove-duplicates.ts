@@ -30,7 +30,23 @@
 
 export function removeDuplicates(s: string): string {
   // TODO: use a char stack — equal to top? pop. Otherwise push.
-  throw new Error("Not implemented yet — your turn! (See Hints above.)");
+
+  const stack: string[] = [];
+
+  for(let i = 0; i < s.length; i++) {
+    const char = s[i];
+    if(stack.length > 0 && stack[stack.length - 1] === char) {
+      stack.pop();
+    } else {
+      stack.push(char);
+    }
+  }
+
+  let result = "";
+  while(stack.length > 0) {
+    result = stack.pop() + result;
+  }
+  return result;
 }
 
 // ---------- SELF-CHECK (no answers leaked — just pass/fail) ----------

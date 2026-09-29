@@ -33,21 +33,29 @@
 
 export class MinStack {
   // TODO: add a main stack + a min-tracking stack.
+  private main: number[] = [];
+  private mins: number[] = []; // mins[i] = min of main[0..i]
 
   push(val: number): void {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    this.main.push(val);
+    const prevMin = this.mins.length > 0 ? this.mins[this.mins.length - 1] : val;
+    this.mins.push(Math.min(val, prevMin));
   }
 
   pop(): void {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    this.main.pop();
+    this.mins.pop(); // stay aligned — this restores the previous min
+    // throw new Error("Not implemented yet — your turn! (See Hints above.)");
   }
 
   top(): number {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    return this.main[this.main.length - 1];
+    // throw new Error("Not implemented yet — your turn! (See Hints above.)");
   }
 
   getMin(): number {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    return this.mins[this.mins.length - 1];
+    // throw new Error("Not implemented yet — your turn! (See Hints above.)");
   }
 }
 
