@@ -33,11 +33,33 @@
  * open it ONLY after you have tried for 10–15 minutes.
  */
 
-export function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
-  // TODO: one pass over nums2 with an increasing stack + a value→answer map.
-  throw new Error("Not implemented yet — your turn! (See Hints above.)");
-}
+function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
+    const n = nums2.length;
+    const stack: number[] = [];
+    const nextGreater = new Map<number, number>();
 
+    for(const x of nums2){
+        while(stack.length>0 && stack[stack.length - 1]<x){
+            const smaller = stack.pop();
+            nextGreater.set(smaller, x);
+        }
+        stack.push(x);
+    }
+
+   // return nums1.map((x) => nextGreater.get(x) ?? -1);
+
+   const result: number[] = [];
+
+   for(const x of nums1){
+    const answer = nextGreater.get(x);
+    if(answer===undefined){
+        result.push(-1);
+    }else{
+        result.push(answer);
+    }
+   }
+return result;
+};
 // ---------- SELF-CHECK (no answers leaked — just pass/fail) ----------
 
 function selfCheck() {
