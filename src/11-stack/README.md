@@ -172,6 +172,7 @@ time, do exactly: Stack → Valid Parentheses → Min Stack → Next Greater Ele
 4. `day-3/largest-rectangle.ts` — ★★ the hardest classic monotonic-stack problem
 
 ## 6. Problem Checklist
+hemant
 
 - [ ] Day 1 — Reverse String
 - [ ] Day 1 — Valid Parentheses

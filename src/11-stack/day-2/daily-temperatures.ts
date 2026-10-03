@@ -32,7 +32,18 @@
 
 export function dailyTemperatures(temperatures: number[]): number[] {
   // TODO: increasing stack of INDICES; on warmer day i, pop j and set ans[j] = i - j.
-  throw new Error("Not implemented yet — your turn! (See Hints above.)");
+  const n = temperatures.length;
+  const stack: number[] = [];
+  const ans:number[] = new Array(n).fill(0);
+
+  for(let i=0;i<n;i++){
+    while(stack.length>0 && temperatures[stack[stack.length - 1]]<temperatures[i]){
+        const j = stack.pop();
+        ans[j] = i - j;
+    }
+    stack.push(i);
+  }
+  return ans;
 }
 
 // ---------- SELF-CHECK (no answers leaked — just pass/fail) ----------
