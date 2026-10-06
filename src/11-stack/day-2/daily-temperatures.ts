@@ -38,7 +38,7 @@ export function dailyTemperatures(temperatures: number[]): number[] {
 
   for(let i=0;i<n;i++){
     while(stack.length>0 && temperatures[stack[stack.length - 1]]<temperatures[i]){
-        const j = stack.pop();
+        const j = stack.pop()!;
         ans[j] = i - j;
     }
     stack.push(i);

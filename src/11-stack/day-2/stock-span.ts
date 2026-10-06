@@ -33,7 +33,18 @@
 
 export function stockSpan(prices: number[]): number[] {
   // TODO: increasing stack of indices; pop while prices[top] <= today.
-  throw new Error("Not implemented yet — your turn! (See Hints above.)");
+  
+  const stack: number[] = [];
+  const ans: number[] = new Array(prices.length).fill(0);
+
+  for(let i=0; i<prices.length; i++){
+    while(stack.length>0 && prices[stack[stack.length - 1]] <= prices[i]){
+      stack.pop();
+    }
+    ans[i] = stack.length === 0 ? i + 1 : i - stack[stack.length - 1];
+    stack.push(i);
+  }
+  return ans;
 }
 
 // ---------- SELF-CHECK (no answers leaked — just pass/fail) ----------
