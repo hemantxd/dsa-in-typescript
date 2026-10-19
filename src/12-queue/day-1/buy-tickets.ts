@@ -32,10 +32,28 @@
  * open it ONLY after you have tried for 10–15 minutes.
  */
 
-export function timeRequiredToBuy(tickets: number[], k: number): number {
-  // TODO: queue of indices — pop front, decrement, push back if still hungry.
-  throw new Error("Not implemented yet — your turn! (See Hints above.)");
-}
+function timeRequiredToBuy(tickets: number[], k: number): number {
+
+    let ans =0;
+    let queue:[number, number][] = tickets.map((temp, index)=>[index,temp]) 
+
+
+    while(queue.length>0){
+        const [index, remaining] = queue.shift()!;
+      
+        ans++;
+        
+        if(remaining>1){
+            queue.push([index, remaining-1]);
+        }else if(index==k){
+            return ans;
+        }
+            
+    }
+
+    return ans;
+
+};
 
 // ---------- SELF-CHECK (no answers leaked — just pass/fail) ----------
 
