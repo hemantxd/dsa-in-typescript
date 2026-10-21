@@ -34,7 +34,31 @@
 
 export function maxSlidingWindow(nums: number[], k: number): number[] {
   // TODO: decreasing deque of indices; evict smaller from back, expired from front.
-  throw new Error("Not implemented yet — your turn! (See Hints above.)");
+  const deque: number[] = []; // indices; values strictly decreasing
+  const answer: number[] = [];
+
+  for(let i = 0; i < nums.length; i++) {
+    // 1. new value buries smaller/equal values — useless forever
+    while(deque.length > 0 && nums[deque[deque.length -1]] <= nums[i]){
+      deque.pop();
+    }
+    deque.push(i);
+
+    //expired from front
+    if(deque[0]<=i-k){
+      deque.shift();
+    }
+    if(i>=k-1){
+      answer.push(nums[deque[0]]);
+    }
+  
+
+
+  }
+
+
+  return answer;
+
 }
 
 // ---------- SELF-CHECK (no answers leaked — just pass/fail) ----------
