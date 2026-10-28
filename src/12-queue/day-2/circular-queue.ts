@@ -37,32 +37,44 @@
 export class MyCircularQueue {
   // TODO: fixed array + head index + count; modulo for wrap-around.
 
+  private data: number[];
+  private head = 0; // index of the front element
+  private count = 0; // how many elements are stored
+  private k: number;
+
   constructor(k: number) {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    this.k = k;
+    this.data = new Array<number>(k);
   }
 
   enQueue(value: number): boolean {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    if (this.isFull()) return false;
+    this.data[(this.head + this.count) % this.k] = value; // back of the ring
+    this.count++;
+    return true;
   }
 
   deQueue(): boolean {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    if (this.isEmpty()) return false;
+    this.head = (this.head + 1) % this.k; // front advances, slot reused later
+    this.count--;
+    return true;
   }
 
   Front(): number {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    return this.isEmpty() ? -1 : this.data[this.head];
   }
 
   Rear(): number {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    return this.isEmpty() ? -1 : this.data[(this.head + this.count - 1) % this.k];
   }
 
   isEmpty(): boolean {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    return this.count === 0;
   }
 
   isFull(): boolean {
-    throw new Error("Not implemented yet — your turn! (See Hints above.)");
+    return this.count === this.k;
   }
 }
 
